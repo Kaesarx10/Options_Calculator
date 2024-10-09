@@ -21,3 +21,11 @@ def black_scholes(S, K, T, r, sigma, option_type):
 	
 # must start timer to obtain computaional time.
 	start_time = time.time()
+
+# Before calculation the Complete Formula where price C = S*N(d1)-K*e^(-rT) * N(d2), d1 and d2 are defined
+# d1 represents the normalized distance between the current stock price anf the strike price, adjusted for the time value of money and the volatility of the security
+# Growth rate is incoporated through rate r, and volatility incorporated through sigma.
+# This is the probability the Option will be in the money at the expiration, adjusted for time value of money. 
+# d1 = [ ln(S/K) + (r+(sigma^2)/2) * T ] / [ sigma * T^(1/2) ]
+
+	d1 = (np.log(S/K) + (r + .5*sigma**2) * T ) / (sigma * np.sqrt(T))
