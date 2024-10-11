@@ -49,10 +49,10 @@ def black_scholes(S, K, T, r, sigma, option_type):
 # N(d2) Represents the probability the Option will be Excecised, consideringthe discounting effect of the risk-free rate. It is essentially the risk-neutral probability that the Option will bw In-the-Money at Expiration. 
 
 	if option_type == 'call':
-		option_price = S * N(d1) - K * e^(-rT) * N(d2)
+		option_price = S * norm.cdf(d1) - K * np.exp(-rT) * norm.cdf(d2)
 	
 	elif option_type == 'put':
-		option_price = K * e^(-rT) * N(-d2) - S * N(-d1)
+		option_price = K * np.exp(-rT) * norm.cdf(-d2) - S * norm.cdf(-d1)
 
 	else: 
 		Raise ValueError("Invalid option type. Use 'call', or 'put'.")
