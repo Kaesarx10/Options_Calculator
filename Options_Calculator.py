@@ -46,7 +46,7 @@ def black_scholes(S, K, T, r, sigma, option_type):
 
 # N(d1) Represents the probability that the Option will be In-the-Money, adjusted for the Time Value of Money and. It accounts for the expected growth of the stock price and the risk associated with it. 
 
-# N(d2) REpresents the probability the Option will be Excecised, consideringthe discounting effect of the risk-free rate. It is essentially the risk-neutral probability that the Option will bw In-the-Money at Expiration. 
+# N(d2) Represents the probability the Option will be Excecised, consideringthe discounting effect of the risk-free rate. It is essentially the risk-neutral probability that the Option will bw In-the-Money at Expiration. 
 
 	if option_type == 'call':
 		option_price = S * N(d1) - K * e^(-rT) * N(d2)
