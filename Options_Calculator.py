@@ -22,12 +22,12 @@ def black_scholes(S, K, T, r, sigma, option_type):
 # must start timer to obtain computaional time.
 	start_time = time.time()
 
-# Before calculating the Complete Formula for price of either a Call, or a Put, through; 
+# Before calculating the Complete Formula for price of either a Call, or a Put;
 
 #		C = S * N(d1) - K * e^(-rT) * N(d2)
 #		P = K * e^(-rT) * N(-d2) - S * N(-d1)
 
-# d1 and d2 are defined. 
+# Values d1, and d2 are defined. 
 
 # d1 represents the normalized distance between the current stock price and the strike price, adjusted for the time value of money and the volatility of the security
 # Growth rate is incoporated through rate r, and volatility incorporated through sigma.
@@ -42,3 +42,19 @@ def black_scholes(S, K, T, r, sigma, option_type):
 
 	d2 = d1 - sigma * np.sqrt(T)
 
+# N(d1) and N(d2) are Cumulative distribution functions of the standard normal distribution evaluated at d1 and d2.
+
+# N(d1) Represents the probability that the Option will be In-the-Money, adjusted for the Time Value of Money and. It accounts for the expected growth of the stock price and the risk associated with it. 
+
+# N(d2) REpresents the probability the Option will be Excecised, consideringthe discounting effect of the risk-free rate. It is essentially the risk-neutral probability that the Option will bw In-the-Money at Expiration. 
+
+	if option_type == 'call':
+		option_price = S * N(d1) - K * e^(-rT) * N(d2)
+	
+	elif option_type == 'put':
+		option_price = K * e^(-rT) * N(-d2) - S * N(-d1)
+
+	else: 
+		Raise ValueError("Invalid option type. Use 'call', or 'put'.")
+
+	Return option_price
