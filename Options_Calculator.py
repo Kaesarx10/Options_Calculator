@@ -1,4 +1,4 @@
-#Simple European Style Options Calculator One
+# Simple European Style Options Calculator
 
 import time
 import numpy as np
@@ -42,7 +42,7 @@ def black_scholes(S, K, T, r, sigma, option_type):
 
 	d2 = d1 - sigma * np.sqrt(T)
 
-# N(d1) and N(d2) are Cumulative distribution functions of the standard normal distribution evaluated at d1 and d2.
+# N(d1) and N(d2) are Cumulative Distribution Functions of the standard normal distribution evaluated at d1 and d2.
 
 # N(d1) Represents the probability that the Option will be In-the-Money, adjusted for the Time Value of Money and. It accounts for the expected growth of the stock price and the risk associated with it. 
 
